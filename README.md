@@ -1,6 +1,8 @@
 Symfony Redis Bundle
 ====================
 
+[![SensioLabsInsight][sensiolabs-insight-image]][sensiolabs-insight-link]
+
 [![Build Status][testing-image]][testing-link]
 [![Scrutinizer Code Quality][scrutinizer-code-quality-image]][scrutinizer-code-quality-link]
 [![Code Coverage][code-coverage-image]][code-coverage-link]
@@ -64,6 +66,8 @@ Read more on page [Quick tour][predis-quick-tour-link].
 [testing-image]: https://travis-ci.org/symfony-bundles/redis-bundle.svg?branch=master
 [stable-image]: https://poser.pugx.org/symfony-bundles/redis-bundle/v/stable
 [downloads-image]: https://poser.pugx.org/symfony-bundles/redis-bundle/downloads
+[sensiolabs-insight-link]: https://insight.sensiolabs.com/projects/6b338d1f-7977-41ab-b0e1-60c4de726662
+[sensiolabs-insight-image]: https://insight.sensiolabs.com/projects/6b338d1f-7977-41ab-b0e1-60c4de726662/big.png
 [code-coverage-link]: https://scrutinizer-ci.com/g/symfony-bundles/redis-bundle/?branch=master
 [code-coverage-image]: https://scrutinizer-ci.com/g/symfony-bundles/redis-bundle/badges/coverage.png?b=master
 [scrutinizer-code-quality-link]: https://scrutinizer-ci.com/g/symfony-bundles/redis-bundle/?branch=master

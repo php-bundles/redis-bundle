@@ -13,27 +13,27 @@ class RedisExtension extends ConfigurableExtension
     /**
      * {@inheritdoc}
      */
-    protected function loadInternal(array $mergedConfig, ContainerBuilder $container)
+    protected function loadInternal(array $configs, ContainerBuilder $container)
     {
-        foreach ($mergedConfig['class'] as $name => $class) {
+        foreach ($configs['class'] as $name => $class) {
             $container->setParameter(sprintf('sb_redis.class.%s', $name), $class);
         }
 
-        $this->addClients($mergedConfig, $container);
+        $this->addClients($configs, $container);
     }
 
     /**
-     * @param array            $config
+     * @param array            $configs
      * @param ContainerBuilder $container
      */
-    private function addClients(array $config, ContainerBuilder $container)
+    private function addClients(array $configs, ContainerBuilder $container)
     {
-        $factory = new Definition($config['class']['factory']);
+        $factory = new Definition($configs['class']['factory']);
         $factoryReference = new Reference('sb_redis.client.factory');
-        $factory->addArgument($config['class']['client']);
+        $factory->addArgument($configs['class']['client']);
         $container->setDefinition($factoryReference, $factory);
 
-        foreach ($config['clients'] as $name => $arguments) {
+        foreach ($configs['clients'] as $name => $arguments) {
             $id = sprintf('sb_redis.client.%s', $name);
 
             if (null !== $arguments['alias']) {
@@ -42,7 +42,7 @@ class RedisExtension extends ConfigurableExtension
 
             unset($arguments['alias']);
 
-            $definition = new Definition($config['class']['client']);
+            $definition = new Definition($configs['class']['client']);
             $definition->setFactory([$factoryReference, 'create']);
             $definition->setArguments($arguments);
             $container->setDefinition($id, $definition);

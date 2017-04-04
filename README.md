@@ -1,5 +1,5 @@
-Symfony Redis Bundle
-====================
+SymfonyBundlesRedisBundle
+=========================
 
 [![SensioLabsInsight][sensiolabs-insight-image]][sensiolabs-insight-link]
 

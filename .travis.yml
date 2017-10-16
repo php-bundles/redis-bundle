@@ -30,14 +30,6 @@ env:
     - SYMFONY_VERSION=3.2.*
     - SYMFONY_VERSION=3.3.*
 
-matrix:
-#    exclude:
-#        - env: SYMFONY_VERSION=2.7.*
-#          php: 7.*
-#        - env: SYMFONY_VERSION=2.8.*
-#          php: 7.*
-    fast_finish: true
-
 services:
     - redis-server
 

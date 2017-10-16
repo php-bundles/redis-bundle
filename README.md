@@ -38,16 +38,16 @@ Defaults configuration:
 ``` yml
 sb_redis:
     class:
-        client:  "SymfonyBundles\RedisBundle\Service\Client"
-        factory: "SymfonyBundles\RedisBundle\Service\Factory"
+        client:  'SymfonyBundles\RedisBundle\Service\Client'
+        factory: 'SymfonyBundles\RedisBundle\Service\Factory'
     clients:
         default:
             # container alias for service, defaults name for this client: sb_redis.client.default
             alias:      ~
             # client options
-            options:    []
+            $options:    []
             # connection parameters
-            parameters: []
+            $parameters: []
 ```
 
 Read more about supported client options and connection parameters:
@@ -57,7 +57,7 @@ Read more about supported client options and connection parameters:
 
 How to use
 ----------
-Read more on page [Quick tour][predis-quick-tour-link].
+Read more on the page [Quick tour][predis-quick-tour-link].
 
 [package-link]: https://packagist.org/packages/symfony-bundles/redis-bundle
 [license-link]: https://github.com/symfony-bundles/redis-bundle/blob/master/LICENSE

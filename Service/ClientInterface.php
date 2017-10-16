@@ -4,7 +4,6 @@ namespace SymfonyBundles\RedisBundle\Service;
 
 interface ClientInterface extends \Predis\ClientInterface
 {
-
     /**
      * Insert all the specified values at the tail of the list stored at key.
      *

@@ -4,7 +4,6 @@ namespace SymfonyBundles\RedisBundle\Service;
 
 class Client extends \Predis\Client implements ClientInterface
 {
-
     /**
      * {@inheritdoc}
      */
@@ -28,5 +27,4 @@ class Client extends \Predis\Client implements ClientInterface
                 $this->createCommand($command, $arguments)
         );
     }
-
 }

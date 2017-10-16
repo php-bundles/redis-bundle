@@ -4,7 +4,6 @@ namespace SymfonyBundles\RedisBundle\Service;
 
 interface FactoryInterface
 {
-
     /**
      * Creates single or aggregate connections from different types of arguments.
      *

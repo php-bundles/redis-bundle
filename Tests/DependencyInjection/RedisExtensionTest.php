@@ -9,7 +9,6 @@ use SymfonyBundles\RedisBundle\DependencyInjection\RedisExtension;
 
 class RedisExtensionTest extends TestCase
 {
-
     public function testHasServices()
     {
         $extension = new RedisExtension();
@@ -42,5 +41,4 @@ class RedisExtensionTest extends TestCase
 
         $this->assertStringEndsWith('redis', $extension->getAlias());
     }
-
 }

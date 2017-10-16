@@ -9,7 +9,6 @@ use Symfony\Component\HttpKernel\DependencyInjection\ConfigurableExtension;
 
 class RedisExtension extends ConfigurableExtension
 {
-
     /**
      * {@inheritdoc}
      */
@@ -56,5 +55,4 @@ class RedisExtension extends ConfigurableExtension
     {
         return 'sb_redis';
     }
-
 }

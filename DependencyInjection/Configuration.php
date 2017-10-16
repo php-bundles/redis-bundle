@@ -9,7 +9,6 @@ use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
 
 class Configuration implements ConfigurationInterface
 {
-
     /**
      * {@inheritdoc}
      */
@@ -62,10 +61,10 @@ class Configuration implements ConfigurationInterface
                     ->prototype('array')
                         ->children()
                             ->scalarNode('alias')->defaultNull()->end()
-                            ->arrayNode('parameters')
+                            ->arrayNode('$parameters')
                                 ->prototype('variable')->end()
                             ->end()
-                            ->arrayNode('options')
+                            ->arrayNode('$options')
                                 ->prototype('variable')->end()
                             ->end()
                         ->end()
@@ -73,5 +72,4 @@ class Configuration implements ConfigurationInterface
                 ->end()
             ->end();
     }
-
 }

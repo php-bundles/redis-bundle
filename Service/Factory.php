@@ -4,7 +4,6 @@ namespace SymfonyBundles\RedisBundle\Service;
 
 class Factory implements FactoryInterface
 {
-
     /**
      * @var string
      */
@@ -29,5 +28,4 @@ class Factory implements FactoryInterface
     {
         return new static::$clientClass($parameters, $options);
     }
-
 }

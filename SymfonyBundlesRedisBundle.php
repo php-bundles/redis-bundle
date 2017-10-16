@@ -6,7 +6,6 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 class SymfonyBundlesRedisBundle extends Bundle
 {
-
     /**
      * {@inheritdoc}
      */
@@ -14,5 +13,4 @@ class SymfonyBundlesRedisBundle extends Bundle
     {
         return new DependencyInjection\RedisExtension();
     }
-
 }

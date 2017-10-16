@@ -9,10 +9,9 @@ use SymfonyBundles\RedisBundle\DependencyInjection\RedisExtension;
 
 class ClientTest extends TestCase
 {
-
     public function testDefaultClass()
     {
-        $config = ['sb_redis' => [ 'class' => [ 'client' => null]]];
+        $config = ['sb_redis' => ['class' => ['client' => null]]];
         $client = $this->loadExtension($config)->get('test.client');
 
         $this->assertInstanceOf(ClientInterface::class, $client);
@@ -33,10 +32,10 @@ class ClientTest extends TestCase
         $defaults = ['sb_redis' => [
                 'clients' => [
                     'test' => [
-                        'alias' => 'test.client'
-                    ]
-                ]
-            ]
+                        'alias' => 'test.client',
+                    ],
+                ],
+            ],
         ];
 
         $extension = new RedisExtension();
@@ -46,5 +45,4 @@ class ClientTest extends TestCase
 
         return $container;
     }
-
 }

@@ -66,8 +66,8 @@ Read more on the page [Quick tour][predis-quick-tour-link].
 [testing-image]: https://travis-ci.org/symfony-bundles/redis-bundle.svg?branch=master
 [stable-image]: https://poser.pugx.org/symfony-bundles/redis-bundle/v/stable
 [downloads-image]: https://poser.pugx.org/symfony-bundles/redis-bundle/downloads
-[sensiolabs-insight-link]: https://insight.sensiolabs.com/projects/6b338d1f-7977-41ab-b0e1-60c4de726662
-[sensiolabs-insight-image]: https://insight.sensiolabs.com/projects/6b338d1f-7977-41ab-b0e1-60c4de726662/big.png
+[sensiolabs-insight-link]: https://insight.sensiolabs.com/projects/406e76e9-6b80-49b1-aab4-4c2abf6627e3
+[sensiolabs-insight-image]: https://insight.sensiolabs.com/projects/406e76e9-6b80-49b1-aab4-4c2abf6627e3/big.png
 [code-coverage-link]: https://scrutinizer-ci.com/g/symfony-bundles/redis-bundle/?branch=master
 [code-coverage-image]: https://scrutinizer-ci.com/g/symfony-bundles/redis-bundle/badges/coverage.png?b=master
 [scrutinizer-code-quality-link]: https://scrutinizer-ci.com/g/symfony-bundles/redis-bundle/?branch=master

@@ -2,6 +2,7 @@
 
 namespace SymfonyBundles\RedisBundle\DependencyInjection;
 
+use SymfonyBundles\RedisBundle\Redis;
 use Symfony\Component\DependencyInjection\Reference;
 use Symfony\Component\DependencyInjection\Definition;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -14,44 +15,26 @@ class RedisExtension extends ConfigurableExtension
      */
     protected function loadInternal(array $configs, ContainerBuilder $container)
     {
-        foreach ($configs['class'] as $name => $class) {
-            $container->setParameter(sprintf('sb_redis.class.%s', $name), $class);
-        }
-
-        $this->addClients($configs, $container);
-    }
-
-    /**
-     * @param array            $configs
-     * @param ContainerBuilder $container
-     */
-    private function addClients(array $configs, ContainerBuilder $container)
-    {
-        $factory = new Definition($configs['class']['factory']);
-        $factoryReference = new Reference('sb_redis.client.factory');
-        $factory->addArgument($configs['class']['client']);
-        $container->setDefinition($factoryReference, $factory);
+        $factoryReference = new Reference(Redis\FactoryInterface::class);
+        $container->setDefinition($factoryReference, new Definition(Redis\Factory::class));
 
         foreach ($configs['clients'] as $name => $arguments) {
-            $id = sprintf('sb_redis.client.%s', $name);
-
-            if (null !== $arguments['alias']) {
-                $container->setAlias($arguments['alias'], $id);
-            }
-
-            unset($arguments['alias']);
-
-            $definition = new Definition($configs['class']['client']);
+            $definition = new Definition(Redis\Client::class);
             $definition->setFactory([$factoryReference, 'create']);
             $definition->setArguments($arguments);
-            $container->setDefinition($id, $definition);
+
+            $container->setDefinition(sprintf('%s.%s', $this->getAlias(), $name), $definition);
+
+            if (false === $container->hasDefinition(Redis\ClientInterface::class)) {
+                $container->setDefinition(Redis\ClientInterface::class, $definition);
+            }
         }
     }
 
     /**
      * {@inheritdoc}
      */
-    public function getAlias()
+    public function getAlias(): string
     {
         return 'sb_redis';
     }

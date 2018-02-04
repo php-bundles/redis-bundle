@@ -37,9 +37,6 @@ public function registerBundles()
 Defaults configuration:
 ``` yml
 sb_redis:
-    class:
-        client:  'SymfonyBundles\RedisBundle\Service\Client'
-        factory: 'SymfonyBundles\RedisBundle\Service\Factory'
     clients:
         default:
             # container alias for service, defaults name for this client: sb_redis.client.default

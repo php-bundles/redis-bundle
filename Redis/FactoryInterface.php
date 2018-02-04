@@ -1,6 +1,6 @@
 <?php
 
-namespace SymfonyBundles\RedisBundle\Service;
+namespace SymfonyBundles\RedisBundle\Redis;
 
 interface FactoryInterface
 {
@@ -12,5 +12,5 @@ interface FactoryInterface
      *
      * @return ClientInterface
      */
-    public static function create(array $parameters = [], array $options = []);
+    public static function create(array $parameters = [], array $options = []): ClientInterface;
 }

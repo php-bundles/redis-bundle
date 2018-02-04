@@ -7,6 +7,14 @@ class Client extends \Predis\Client implements ClientInterface
     /**
      * {@inheritdoc}
      */
+    public function pop(string $key): ?string
+    {
+        return $this->call('lpop', [$key]);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function push(string $key, ...$values): int
     {
         return $this->call('rpush', array_merge([$key], $values));

@@ -15,36 +15,20 @@ Installation
 * Require the bundle with composer:
 
 ``` bash
-composer require symfony-bundles/redis-bundle
+composer req symfony-bundles/redis-bundle
 ```
 
-* Enable the bundle in the kernel:
-
-``` php
-public function registerBundles()
-{
-    $bundles = [
-        // ...
-        new SymfonyBundles\RedisBundle\SymfonyBundlesRedisBundle(),
-        // ...
-    ];
-    ...
-}
-```
-
-* Configure the redis bundle in your config.yml.
-
-Defaults configuration:
+Configuring of the clients
+--------------------------
+If you want configure Redis clients - create configuration file. For example:
 ``` yml
+# config/packages/sb_redis.yaml
 sb_redis:
     clients:
         default:
-            # container alias for service, defaults name for this client: sb_redis.client.default
-            alias:      ~
-            # client options
             $options:    []
-            # connection parameters
-            $parameters: []
+            $parameters: ['tcp://127.0.0.1:6379?database=3']
+
 ```
 
 Read more about supported client options and connection parameters:

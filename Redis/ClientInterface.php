@@ -5,6 +5,17 @@ namespace SymfonyBundles\RedisBundle\Redis;
 interface ClientInterface extends \Predis\ClientInterface
 {
     /**
+     * Removes and returns the first element of the list stored at key.
+     *
+     * @param string $key
+     *
+     * @return null|string The value of the first element, or nil when key does not exist.
+     *
+     * @see ClientInterface::lpop()
+     */
+    public function pop(string $key): ?string;
+
+    /**
      * Insert all the specified values at the tail of the list stored at key.
      *
      * @param string                $key

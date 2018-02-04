@@ -28,6 +28,20 @@ class ClientTest extends TestCase
         $this->assertSame(3, $client->count('mykey'));
     }
 
+    public function testPop()
+    {
+        $client = $this->getClient();
+
+        $client->remove('mykey');
+
+        $this->assertSame(0, $client->count('mykey'));
+        $this->assertSame(3, $client->push('mykey', 'foo', 'bar', 'baz'));
+        $this->assertSame('foo', $client->pop('mykey'));
+        $this->assertSame('bar', $client->pop('mykey'));
+        $this->assertSame('baz', $client->pop('mykey'));
+        $this->assertSame(0, $client->count('mykey'));
+    }
+
     private function getClient(array $config = []): ClientInterface
     {
         return $this->loadExtension($config)->get(ClientInterface::class);

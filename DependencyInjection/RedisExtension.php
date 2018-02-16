@@ -22,6 +22,7 @@ class RedisExtension extends ConfigurableExtension
             $definition = new Definition(Redis\Client::class);
             $definition->setFactory([$factoryReference, 'create']);
             $definition->setArguments($arguments);
+            $definition->setPublic(true);
 
             $container->setDefinition(sprintf('%s.%s', $this->getAlias(), $name), $definition);
 

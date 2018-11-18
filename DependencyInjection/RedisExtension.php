@@ -21,7 +21,7 @@ class RedisExtension extends ConfigurableExtension
         foreach ($configs['clients'] as $name => $arguments) {
             $definition = new Definition(Redis\Client::class);
             $definition->setFactory([$factoryReference, 'create']);
-            $definition->setArguments($arguments);
+            $definition->setArguments([$arguments['$parameters'], $arguments['$options']]);
             $definition->setPublic(true);
 
             $container->setDefinition(sprintf('%s.%s', $this->getAlias(), $name), $definition);

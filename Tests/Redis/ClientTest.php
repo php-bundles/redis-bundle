@@ -42,6 +42,22 @@ class ClientTest extends TestCase
         $this->assertSame(0, $client->count('mykey'));
     }
 
+    public function testSingleConnection()
+    {
+        $client = $this->getClient([
+            'sb_redis' => [
+                'clients' => [
+                    'test' => [
+                        '$options' => [],
+                        '$parameters' => ['tcp://127.0.0.1:6379'],
+                    ],
+                ],
+            ],
+        ]);
+
+        $this->assertSame('OK', $client->flushall()->getPayload());
+    }
+
     private function getClient(array $config = []): ClientInterface
     {
         return $this->loadExtension($config)->get(ClientInterface::class);

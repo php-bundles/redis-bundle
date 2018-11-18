@@ -7,6 +7,18 @@ class Client extends \Predis\Client implements ClientInterface
     /**
      * {@inheritdoc}
      */
+    public function __construct($parameters = null, $options = null)
+    {
+        if (\count($parameters) === 1) {
+            $parameters = \array_shift($parameters);
+        }
+
+        parent::__construct($parameters, $options);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function pop(string $key): ?string
     {
         return $this->call('lpop', [$key]);

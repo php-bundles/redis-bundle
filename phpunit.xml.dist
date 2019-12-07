@@ -4,6 +4,7 @@
          xsi:noNamespaceSchemaLocation="http://schema.phpunit.de/4.1/phpunit.xsd"
          backupGlobals="false"
          colors="true"
+         cacheResult="false"
          bootstrap="vendor/autoload.php">
     <php>
         <ini name="memory_limit" value="-1" />

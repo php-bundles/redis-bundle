@@ -10,7 +10,7 @@ use SymfonyBundles\RedisBundle\DependencyInjection\RedisExtension;
 
 class RedisExtensionTest extends TestCase
 {
-    public function testHasServices()
+    public function testHasServices(): void
     {
         $extension = new RedisExtension();
         $container = new ContainerBuilder();
@@ -23,7 +23,7 @@ class RedisExtensionTest extends TestCase
         $this->assertTrue($container->has(ClientInterface::class));
     }
 
-    public function testClientAlias()
+    public function testClientAlias(): void
     {
         $config = ['sb_redis' => ['clients' => ['test' => []]]];
 
@@ -37,7 +37,7 @@ class RedisExtensionTest extends TestCase
         $this->assertTrue($container->has(ClientInterface::class));
     }
 
-    public function testAlias()
+    public function testAlias(): void
     {
         $extension = new RedisExtension();
 

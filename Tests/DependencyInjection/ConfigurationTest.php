@@ -18,6 +18,6 @@ class ConfigurationTest extends TestCase
 
         $configs = $processor->processConfiguration($configuration, []);
 
-        $this->assertArraySubset([], $configs);
+        $this->assertSame(['clients' => ['default' => ['$parameters' => [], '$options' => []]]], $configs);
     }
 }

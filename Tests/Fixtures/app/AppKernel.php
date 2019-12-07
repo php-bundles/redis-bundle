@@ -15,6 +15,14 @@ class AppKernel extends Kernel
         (new Filesystem())->remove($this->getCacheDir());
     }
 
+    /**
+     * @inheritDoc
+     */
+    public function getName()
+    {
+        return 'xxx';
+    }
+
     public function registerBundles()
     {
         $bundles = [

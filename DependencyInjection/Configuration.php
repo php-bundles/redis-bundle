@@ -12,9 +12,9 @@ class Configuration implements ConfigurationInterface
      */
     public function getConfigTreeBuilder()
     {
-        $builder = new TreeBuilder();
+        $builder = new TreeBuilder('sb_redis');
         $builder
-            ->root('sb_redis')
+            ->getRootNode()
             ->children()
                 ->arrayNode('clients')
                     ->addDefaultChildrenIfNoneSet('default')

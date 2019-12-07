@@ -17,12 +17,10 @@ class AppKernel extends Kernel
 
     public function registerBundles()
     {
-        $bundles = [
+        return [
             new \Symfony\Bundle\FrameworkBundle\FrameworkBundle(),
             new \SymfonyBundles\RedisBundle\SymfonyBundlesRedisBundle(),
         ];
-
-        return $bundles;
     }
 
     public function getRootDir()

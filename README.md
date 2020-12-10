@@ -31,6 +31,21 @@ sb_redis:
 
 ```
 
+If you want configure Redis clients Sentinel:
+``` yml
+# config/packages/sb_redis.yaml
+sb_redis:
+    clients:
+        default:
+            $options:
+              replication: 'sentinel’
+              service: 'mymaster'
+              parameters:
+                database: '3'
+            $parameters: ['%env(REDIS_URL)%', '%env(REDIS_URL)%']
+
+```
+
 Read more about supported client options and connection parameters:
 
 * [Client Options][predis-options-link].

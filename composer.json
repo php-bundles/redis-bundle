@@ -34,5 +34,11 @@
         "branch-alias": {
             "dev-master": "3.x-dev"
         }
+    },
+    "scripts": {
+        "composer-validate": "composer validate",
+        "test": "vendor/bin/phpunit",
+        "check-style": "vendor/bin/phpcs",
+        "fix-style": "vendor/bin/phpcbf"
     }
 }

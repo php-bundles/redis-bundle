@@ -27,7 +27,8 @@
     },
     "require-dev": {
         "phpunit/phpunit": "^8.5",
-        "phpunit/php-code-coverage": "^7.0"
+        "phpunit/php-code-coverage": "^7.0",
+        "squizlabs/php_codesniffer": "^3.5"
     },
     "extra": {
         "branch-alias": {

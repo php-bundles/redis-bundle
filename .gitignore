@@ -1,3 +1,7 @@
+###> idea setting ###
+.idea/*
+###< idea setting ###
+
 vendor/
 composer.lock
 

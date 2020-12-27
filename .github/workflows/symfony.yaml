@@ -1,7 +1,7 @@
 name: Symfony
 
 on:
-  pull_request: null
+  pull_request:
   push:
     branches: [ master, develop ]
 

@@ -51,7 +51,13 @@ jobs:
           restore-keys: ${{ runner.os }}-${{ matrix.php }}-composer-
 
       - name: Install dependencies
-        run: composer update --no-progress --no-interaction --prefer-dist
+        run: composer update --no-progress --no-interaction
 
       - name: Run tests
-        run: vendor/bin/phpunit
+        run: vendor/bin/phpunit --coverage-clover=coverage.xml
+
+      - name: Run codecov
+        uses: codecov/codecov-action@v1
+        with:
+          file: './coverage.xml'
+          fail_ci_if_error: true

@@ -52,11 +52,11 @@ class Client extends \Predis\Client implements ClientInterface
      * Creates a Redis command with the specified arguments and sends a request to the server.
      *
      * @param string $command   the command ID
-     * @param array  $arguments the arguments for the command
+     * @param array[]|string[]  $arguments the arguments for the command
      *
      * @return mixed
      */
-    protected function call($command, array $arguments = [])
+    protected function call(string $command, array $arguments = [])
     {
         return $this->executeCommand($this->createCommand($command, $arguments));
     }

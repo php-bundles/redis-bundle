@@ -2,6 +2,7 @@
 
 namespace SymfonyBundles\RedisBundle\Tests\Redis;
 
+use Exception;
 use SymfonyBundles\RedisBundle\Tests\TestCase;
 use SymfonyBundles\RedisBundle\Redis\ClientInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -57,12 +58,28 @@ class ClientTest extends TestCase
 
         $this->assertSame('OK', $client->flushall()->getPayload());
     }
-
+    
+    /**
+     * getClient.
+     *
+     * @param array[] $config
+     *
+     * @return ClientInterface
+     *
+     * @throws Exception
+     */
     private function getClient(array $config = []): ClientInterface
     {
         return $this->loadExtension($config)->get(ClientInterface::class);
     }
-
+    
+    /**
+     * loadExtension.
+     *
+     * @param array[] $config
+     *
+     * @return ContainerBuilder
+     */
     private function loadExtension(array $config = []): ContainerBuilder
     {
         $defaults = [

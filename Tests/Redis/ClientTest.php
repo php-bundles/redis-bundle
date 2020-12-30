@@ -71,7 +71,7 @@ class ClientTest extends TestCase
     private function getClient(array $config = []): ClientInterface
     {
         $client = $this->loadExtension($config)->get(ClientInterface::class);
-        
+
         if (!$client instanceof ClientInterface) {
             throw new Exception('Client not instanceof ClientInterface');
         }

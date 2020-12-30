@@ -58,8 +58,8 @@ jobs:
         uses: actions/cache@v2.1.2
         with:
           path: ${{ steps.composer-cache.outputs.dir }}
-          key: ${{ runner.os }}-${{ matrix.php }}-composer-${{ hashFiles('composer.json') }}
-          restore-keys: ${{ runner.os }}-${{ matrix.php }}-composer
+          key: ${{ runner.os }}-${{ matrix.php }}-${{ matrix.symfony-versions }}-composer-${{ hashFiles('composer.json') }}
+          restore-keys: ${{ runner.os }}-${{ matrix.php }}-${{ matrix.symfony-versions }}-composer
 
       - name: Install dependencies
         run: composer require "symfony/symfony:${{ matrix.symfony-versions }}" --no-update
@@ -68,5 +68,10 @@ jobs:
         run: composer install
 
       - name: Run PHPUnit tests
-        run: vendor/bin/phpunit
-        if: ${{ matrix.symfony-versions }} != '5.0.*' && ${{ matrix.php }} != '8.0'
+        run: vendor/bin/phpunit --coverage-clover=coverage.xml
+
+      - name: Run codecov
+        uses: codecov/codecov-action@v1
+        with:
+          file: './coverage.xml'
+          fail_ci_if_error: true

@@ -58,7 +58,7 @@ class ClientTest extends TestCase
 
         $this->assertSame('OK', $client->flushall()->getPayload());
     }
-    
+
     /**
      * getClient.
      *
@@ -72,7 +72,7 @@ class ClientTest extends TestCase
     {
         return $this->loadExtension($config)->get(ClientInterface::class);
     }
-    
+
     /**
      * loadExtension.
      *

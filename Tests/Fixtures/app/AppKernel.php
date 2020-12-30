@@ -14,7 +14,7 @@ class AppKernel extends Kernel
 
         (new Filesystem())->remove($this->getCacheDir());
     }
-    
+
     /**
      * registerBundles.
      *

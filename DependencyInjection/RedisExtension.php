@@ -11,9 +11,12 @@ use Symfony\Component\HttpKernel\DependencyInjection\ConfigurableExtension;
 class RedisExtension extends ConfigurableExtension
 {
     /**
-     * {@inheritdoc}
+     * loadInternal.
+     *
+     * @param array[]          $configs
+     * @param ContainerBuilder $container
      */
-    protected function loadInternal(array $configs, ContainerBuilder $container)
+    protected function loadInternal(array $configs, ContainerBuilder $container): void
     {
         $factoryReference = new Reference(Redis\FactoryInterface::class);
         $container->setDefinition($factoryReference, new Definition(Redis\Factory::class));

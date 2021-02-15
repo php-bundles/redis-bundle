@@ -1,0 +1,63 @@
+name: PHP
+
+on:
+  pull_request:
+  push:
+    branches: [ master, develop ]
+
+jobs:
+  run:
+    name: Tests
+    runs-on: ${{ matrix.os }}
+    services:
+      redis:
+        image: redis
+        ports:
+          - 6379:6379
+        options: --entrypoint redis-server
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - ubuntu-latest
+        php:
+          - '7.2'
+          - '7.3'
+          - '7.4'
+          - '8.0'
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          coverage: xdebug
+
+      - name: Setup Problem Matchers for PHPUnit
+        run: echo "::add-matcher::${{ runner.tool_cache }}/phpunit.json"
+
+      - name: Determine Composer cache directory
+        id: composer-cache
+        run: echo "::set-output name=directory::$(composer config cache-dir)"
+
+      - name: Cache Composer dependencies
+        uses: actions/cache@v2
+        with:
+          path: ${{ steps.composer-cache.outputs.directory }}
+          key: ${{ runner.os }}-${{ matrix.php }}-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: ${{ runner.os }}-${{ matrix.php }}-composer-
+
+      - name: Install dependencies
+        run: composer update --no-progress --no-interaction --prefer-dist
+
+      - name: Run tests
+        run: vendor/bin/phpunit --coverage-clover=coverage.xml
+
+      - name: Run codecov
+        uses: codecov/codecov-action@v1
+        with:
+          file: './coverage.xml'
+          fail_ci_if_error: true

@@ -9,7 +9,7 @@ use SymfonyBundles\RedisBundle\DependencyInjection\Configuration;
 
 class ConfigurationTest extends TestCase
 {
-    public function testConfiguration()
+    public function testConfiguration(): void
     {
         $processor = new Processor();
         $configuration = new Configuration();

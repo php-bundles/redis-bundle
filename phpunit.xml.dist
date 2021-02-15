@@ -9,6 +9,7 @@
     <php>
         <ini name="memory_limit" value="-1" />
         <ini name="error_reporting" value="-1" />
+        <env name="SYMFONY_DEPRECATIONS_HELPER" value="max[self]=0" />
     </php>
 
     <testsuites>
@@ -16,6 +17,10 @@
             <directory>./Tests</directory>
         </testsuite>
     </testsuites>
+
+    <logging>
+        <log type="coverage-clover" target="clover.xml"/>
+    </logging>
 
     <filter>
         <whitelist>

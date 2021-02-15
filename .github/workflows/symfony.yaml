@@ -1,0 +1,77 @@
+name: Symfony
+
+on:
+  pull_request:
+  push:
+    branches: [ master, develop ]
+
+jobs:
+  Tests:
+    runs-on: ${{ matrix.os }}
+    services:
+      redis:
+        image: redis
+        ports:
+          - 6379:6379
+        options: --entrypoint redis-server
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - ubuntu-latest
+        symfony-versions:
+          - '4.4.*'
+          - '5.0.*'
+          - '5.1.*'
+          - '5.2.*'
+        php:
+          - '7.2'
+          - '7.3'
+          - '7.4'
+          - '8.0'
+
+    name: PHP ${{ matrix.php }} Symfony ${{ matrix.symfony-versions }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - uses: actions/cache@v2
+        with:
+          path: ~/.composer/cache/files
+          key: ${{ matrix.php }}-${{ matrix.symfony-versions }}
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          coverage: xdebug
+          extensions: redis
+
+      - name: Add PHPUnit matcher
+        run: echo "::add-matcher::${{ runner.tool_cache }}/phpunit.json"
+
+      - name: Set composer cache directory
+        id: composer-cache
+        run: echo "::set-output name=dir::$(composer config cache-files-dir)"
+
+      - name: Cache composer
+        uses: actions/cache@v2.1.2
+        with:
+          path: ${{ steps.composer-cache.outputs.dir }}
+          key: ${{ runner.os }}-${{ matrix.php }}-${{ matrix.symfony-versions }}-composer-${{ hashFiles('composer.json') }}
+          restore-keys: ${{ runner.os }}-${{ matrix.php }}-${{ matrix.symfony-versions }}-composer
+
+      - name: Install dependencies
+        run: composer require "symfony/symfony:${{ matrix.symfony-versions }}" --no-update
+
+      - name: Install dependencies
+        run: composer install
+
+      - name: Run PHPUnit tests
+        run: vendor/bin/phpunit --coverage-clover=coverage.xml
+
+      - name: Run codecov
+        uses: codecov/codecov-action@v1
+        with:
+          file: './coverage.xml'
+          fail_ci_if_error: true

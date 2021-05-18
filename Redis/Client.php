@@ -9,7 +9,7 @@ class Client extends \Predis\Client implements ClientInterface
      */
     public function __construct($parameters = null, $options = null)
     {
-        if (\count($parameters) === 1) {
+        if (is_array($parameters) && \count($parameters) === 1) {
             $parameters = \array_shift($parameters);
         }
 

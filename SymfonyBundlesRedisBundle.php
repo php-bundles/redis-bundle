@@ -2,7 +2,7 @@
 
 namespace SymfonyBundles\RedisBundle;
 
-use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
+use SymfonyBundles\RedisBundle\DependencyInjection\RedisExtension;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 class SymfonyBundlesRedisBundle extends Bundle
@@ -10,8 +10,8 @@ class SymfonyBundlesRedisBundle extends Bundle
     /**
      * {@inheritdoc}
      */
-    public function getContainerExtension(): ?ExtensionInterface
+    public function getContainerExtension(): ?RedisExtension
     {
-        return new DependencyInjection\RedisExtension();
+        return new RedisExtension();
     }
 }

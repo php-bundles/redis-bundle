@@ -10,7 +10,7 @@ class SymfonyBundlesRedisBundle extends Bundle
     /**
      * {@inheritdoc}
      */
-    public function getContainerExtension(): ?RedisExtension
+    public function getContainerExtension(): RedisExtension
     {
         return new RedisExtension();
     }

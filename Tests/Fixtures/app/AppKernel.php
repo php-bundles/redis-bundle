@@ -45,6 +45,12 @@ class AppKernel extends Kernel
 
     public function registerContainerConfiguration(LoaderInterface $loader): void
     {
-        $loader->load($this->getRootDir() . '/config/config_test.yml');
+        if (Kernel::VERSION_ID < 53000) {
+            $loader->load($this->getRootDir() . '/config/config_test.yml');
+
+            return;
+        }
+
+        $loader->load($this->getRootDir() . '/config/config_test_sf6.yml');
     }
 }

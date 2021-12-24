@@ -61,6 +61,6 @@ Read more on the page [Quick tour][predis-quick-tour-link].
 [predis-options-link]: https://github.com/nrk/predis/wiki/Client-Options#list-of-supported-client-options
 [predis-parameters-link]: https://github.com/nrk/predis/wiki/Connection-Parameters#connection-parameters
 [master Build Status]: https://github.com/symfony-bundles/redis-bundle/actions?query=workflow%3ASymfony+branch%3Amaster
-[master Build Status Image]: https://github.com/symfony-bundles/redis-bundle/actions?query=branch%3Amaster
+[master Build Status Image]: https://github.com/symfony-bundles/redis-bundle/workflows/Symfony/badge.svg?branch=master
 [master Code Coverage]: https://codecov.io/gh/symfony-bundles/redis-bundle/branch/master
 [master Code Coverage Image]: https://img.shields.io/codecov/c/github/symfony-bundles/redis-bundle/master?logo=codecov

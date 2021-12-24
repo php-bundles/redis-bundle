@@ -1,7 +1,7 @@
 SymfonyBundlesRedisBundle
 =========================
 
-[![Scrutinizer Code Quality][scrutinizer-code-quality-image]][scrutinizer-code-quality-link]
+[![Build][master Build Status Image]][master Build Status]
 [![Code Coverage][code-coverage-image]][code-coverage-link]
 [![Total Downloads][downloads-image]][package-link]
 [![Latest Stable Version][stable-image]][package-link]
@@ -57,10 +57,10 @@ Read more on the page [Quick tour][predis-quick-tour-link].
 [license-image]: https://poser.pugx.org/symfony-bundles/redis-bundle/license
 [stable-image]: https://poser.pugx.org/symfony-bundles/redis-bundle/v/stable
 [downloads-image]: https://poser.pugx.org/symfony-bundles/redis-bundle/downloads
-[code-coverage-link]: https://scrutinizer-ci.com/g/symfony-bundles/redis-bundle/?branch=master
-[code-coverage-image]: https://scrutinizer-ci.com/g/symfony-bundles/redis-bundle/badges/coverage.png?b=master
-[scrutinizer-code-quality-link]: https://scrutinizer-ci.com/g/symfony-bundles/redis-bundle/?branch=master
-[scrutinizer-code-quality-image]: https://scrutinizer-ci.com/g/symfony-bundles/redis-bundle/badges/quality-score.png?b=master
 [predis-quick-tour-link]: https://github.com/nrk/predis/wiki/Quick-tour
 [predis-options-link]: https://github.com/nrk/predis/wiki/Client-Options#list-of-supported-client-options
 [predis-parameters-link]: https://github.com/nrk/predis/wiki/Connection-Parameters#connection-parameters
+[master Build Status]: https://github.com/symfony-bundles/redis-bundle/actions?query=workflow%3ASymfony+branch%3Amaster
+[master Build Status Image]: https://github.com/symfony-bundles/redis-bundle/actions?query=branch%3Amaster
+[master Code Coverage]: https://codecov.io/gh/symfony-bundles/redis-bundle/branch/master
+[master Code Coverage Image]: https://img.shields.io/codecov/c/github/symfony-bundles/redis-bundle/master?logo=codecov

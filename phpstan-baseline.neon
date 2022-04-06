@@ -5,6 +5,6 @@ parameters:
 			count: 1
 			path: DependencyInjection/Configuration.php
 		-
-			message: '#^Comparison operation "<" between 60001 and 53000 is always false.$#'
+			message: '#^Comparison operation "<" between 60007 and 53000 is always false.$#'
 			count: 1
 			path: Tests/Fixtures/app/AppKernel.php

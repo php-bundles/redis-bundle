@@ -17,7 +17,7 @@ composer req symfony-bundles/redis-bundle
 
 Configuring of the clients
 --------------------------
-If you want configure Redis clients - create configuration file. For example:
+If you want to configure Redis clients - create a configuration file. For example:
 ``` yml
 # config/packages/sb_redis.yaml
 sb_redis:
@@ -28,7 +28,7 @@ sb_redis:
 
 ```
 
-If you want configure Redis clients Sentinel:
+If you want to configure Redis clients Sentinel:
 ``` yml
 # config/packages/sb_redis.yaml
 sb_redis:

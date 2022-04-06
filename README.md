@@ -17,7 +17,7 @@ composer req symfony-bundles/redis-bundle
 
 Configuring of the clients
 --------------------------
-If you want configure Redis clients - create configuration file. For example:
+If you want to configure Redis clients - create a configuration file. For example:
 ``` yml
 # config/packages/sb_redis.yaml
 sb_redis:
@@ -28,7 +28,7 @@ sb_redis:
 
 ```
 
-If you want configure Redis clients Sentinel:
+If you want to configure Redis clients Sentinel:
 ``` yml
 # config/packages/sb_redis.yaml
 sb_redis:
@@ -62,5 +62,5 @@ Read more on the page [Quick tour][predis-quick-tour-link].
 [predis-parameters-link]: https://github.com/nrk/predis/wiki/Connection-Parameters#connection-parameters
 [master Build Status]: https://github.com/symfony-bundles/redis-bundle/actions?query=workflow%3ASymfony+branch%3Amaster
 [master Build Status Image]: https://github.com/symfony-bundles/redis-bundle/workflows/Symfony/badge.svg?branch=master
-[master Code Coverage]: https://codecov.io/gh/symfony-bundles/redis-bundle/branch/master
-[master Code Coverage Image]: https://img.shields.io/codecov/c/github/symfony-bundles/redis-bundle/master?logo=codecov
+[code-coverage-link]: https://codecov.io/gh/symfony-bundles/redis-bundle/branch/master
+[code-coverage-image]: https://img.shields.io/codecov/c/github/symfony-bundles/redis-bundle/master?logo=codecov

@@ -14,6 +14,9 @@ class Factory implements FactoryInterface
      */
     public static function create(array $parameters = [], array $options = []): ClientInterface
     {
-        return new static::$clientClass($parameters, $options);
+        /** @var ClientInterface $client */
+        $client = new static::$clientClass($parameters, $options);
+
+        return $client;
     }
 }

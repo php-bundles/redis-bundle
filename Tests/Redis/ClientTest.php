@@ -62,7 +62,7 @@ class ClientTest extends TestCase
     /**
      * getClient.
      *
-     * @param array[] $config
+     * @param mixed[] $config
      *
      * @return ClientInterface
      *
@@ -82,7 +82,7 @@ class ClientTest extends TestCase
     /**
      * loadExtension.
      *
-     * @param array[] $config
+     * @param mixed[] $config
      *
      * @return ContainerBuilder
      */

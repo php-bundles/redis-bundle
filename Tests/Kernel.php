@@ -14,12 +14,12 @@ class Kernel
      */
     public static function make(): Fixtures\app\AppKernel
     {
-        if (null === static::$instance) {
-            static::$instance = new Fixtures\app\AppKernel('test', true);
+        if (null === self::$instance) {
+            self::$instance = new Fixtures\app\AppKernel('test', true);
 
-            static::$instance->boot();
+            self::$instance->boot();
         }
 
-        return static::$instance;
+        return self::$instance;
     }
 }

@@ -7,8 +7,8 @@ interface FactoryInterface
     /**
      * Creates single or aggregate connections from different types of arguments.
      *
-     * @param array[] $parameters Connection parameters.
-     * @param array[] $options    Client options.
+     * @param mixed[] $parameters Connection parameters.
+     * @param mixed[] $options    Client options.
      *
      * @return ClientInterface
      */

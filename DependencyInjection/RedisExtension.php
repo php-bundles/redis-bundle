@@ -13,7 +13,7 @@ class RedisExtension extends ConfigurableExtension
     /**
      * loadInternal.
      *
-     * @param array[]          $configs
+     * @param mixed[]          $configs
      * @param ContainerBuilder $container
      */
     protected function loadInternal(array $configs, ContainerBuilder $container): void

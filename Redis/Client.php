@@ -21,7 +21,9 @@ class Client extends \Predis\Client implements ClientInterface
      */
     public function pop(string $key): ?string
     {
-        return $this->call('lpop', [$key]);
+        $result = $this->call('lpop', [$key]);
+
+        return null === $result ? null : (string) $result;
     }
 
     /**
@@ -29,7 +31,7 @@ class Client extends \Predis\Client implements ClientInterface
      */
     public function push(string $key, ...$values): int
     {
-        return $this->call('rpush', array_merge([$key], $values));
+        return (int) $this->call('rpush', array_merge([$key], $values));
     }
 
     /**
@@ -37,7 +39,7 @@ class Client extends \Predis\Client implements ClientInterface
      */
     public function count(string $key): int
     {
-        return $this->call('llen', [$key]);
+        return (int) $this->call('llen', [$key]);
     }
 
     /**
@@ -45,7 +47,7 @@ class Client extends \Predis\Client implements ClientInterface
      */
     public function remove(string $key): int
     {
-        return $this->call('del', [$key]);
+        return (int) $this->call('del', [$key]);
     }
 
     /**
@@ -54,10 +56,13 @@ class Client extends \Predis\Client implements ClientInterface
      * @param string  $command   the command ID
      * @param mixed[] $arguments the arguments for the command
      *
-     * @return mixed
+     * @return int|bool|string|float|null
      */
     protected function call(string $command, array $arguments = [])
     {
-        return $this->executeCommand($this->createCommand($command, $arguments));
+        /** @var int|bool|string|float|null $result */
+        $result = $this->executeCommand($this->createCommand($command, $arguments));
+
+        return $result;
     }
 }

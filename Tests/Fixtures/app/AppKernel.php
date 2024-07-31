@@ -45,6 +45,7 @@ class AppKernel extends Kernel
 
     public function registerContainerConfiguration(LoaderInterface $loader): void
     {
+        // @phpstan-ignore-next-line
         if (Kernel::VERSION_ID < 53000) {
             $loader->load($this->getRootDir() . '/config/config_test.yml');
 

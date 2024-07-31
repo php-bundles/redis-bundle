@@ -1,5 +1,6 @@
 vendor/
 composer.lock
+/*.rdb
 
 ###> squizlabs/php_codesniffer ###
 /.phpcs-cache

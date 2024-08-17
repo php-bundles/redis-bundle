@@ -3,6 +3,7 @@
 namespace SymfonyBundles\RedisBundle\Tests\Redis;
 
 use Exception;
+use Predis\Response\Status;
 use SymfonyBundles\RedisBundle\Tests\TestCase;
 use SymfonyBundles\RedisBundle\Redis\ClientInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -56,7 +57,9 @@ class ClientTest extends TestCase
             ],
         ]);
 
-        $this->assertSame('OK', $client->flushall()->getPayload());
+        $result = $client->flushall();
+        $this->assertInstanceOf(Status::class, $result);
+        $this->assertSame('OK', $result->getPayload());
     }
 
     /**

@@ -4,7 +4,3 @@ parameters:
 			message: "#^Call to an undefined method Symfony\\\\Component\\\\Config\\\\Definition\\\\Builder\\\\NodeDefinition\\:\\:children\\(\\)\\.$#"
 			count: 1
 			path: DependencyInjection/Configuration.php
-		-
-			message: '#^Comparison operation "<" between 70103 and 53000 is always false.$#'
-			count: 1
-			path: Tests/Fixtures/app/AppKernel.php
